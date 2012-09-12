@@ -1,0 +1,46 @@
+doctype 5
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="Robots", content="index,follow")
+    meta(name="author", content="Balazs Nadasdi")
+    meta(name="description", content="Description")
+    meta(name="keywords", content="key, words")
+    title= title
+    link(rel='stylesheet', href='/stylesheets/fonts/Viga/font.css')
+    link(rel='stylesheet', href='/stylesheets/fonts/Sorts Mill Goudy/font.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body    
+    section#content
+      div#slogan
+        span A mai világban már mindig van miről beszélni...
+        span.spacer
+        div.g-plusone(data-size="tall", data-annotation="none", data-callback="plusone_me", data-href="http://tech.folyam.info/")
+        
+      header#logo
+        h1
+          a(href="/") Folyam
+      nav#menu
+        div.entry.current
+          a(href="#") Home
+        div.entry
+          a(href="#") Kategóriák
+        div.entry
+          a(href="#") Cimkék
+        div.entry
+          a(href="#") Kapcsolat
+
+      div.line
+      
+      block content
+
+      footer
+        p &copy; Copyright 2012 Folyam.info &minus; Design: Balazs Nadasdi, <a href="http://folyam.info" title="Folyam.info">Folyam.info</a>
+      
+      script
+        window.___gcfg = {lang: 'hu'};
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/plusone.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();

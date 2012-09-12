@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Sorts Mill Goudy';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Sorts Mill Goudy Regular'), local('SortsMillGoudy-Regular'), url(font-regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Sorts Mill Goudy';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Sorts Mill Goudy Italic'), local('SortsMillGoudy-Italic'), url(font-italic.ttf) format('truetype');
+}

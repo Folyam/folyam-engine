@@ -1,0 +1,72 @@
+extends ../layout
+
+block content
+  div.highlight_articles
+    article#pitch
+      a(href='/')
+        img(src='http://folyam.info/assets/img/2012-08-13-android-jelly-bean-et-pakoltam-a-samsung-galaxy-s-emre-i9000/header.jpeg')
+      header
+        h1
+          a(href='/')= title
+      p
+        | Elmondható nagyon sok minden a Jelly Bean-ről —a 4.1-es Androidról— jó és rossz oldalon egyaránt.
+        | Nekem tetszik és gyorsan meg is mutatnám mi az ami legelőször belopta szívembe eme rendszert.
+        a.next(href='/') részletek >
+  
+    article.third
+      header
+        h3
+          a(href='/') Ki hogyan osztja be köreit?
+      p
+        | Egy Hangout Air beszélgetés arról, hogy ki mint alkotta meg, rendezi össze és kezeli köreit.
+        | Szeretnék ezzel egy kis segítséget adni azoknak akik eddig nem tudták hogyan érdemes vagy
+        | úgy érzik nem optimális a mostani neki, de nem tudja hogyan lehetne jobb.
+      a.next(href='/') részletek >
+
+    article.third
+      header
+        h3
+          a(href='/') Kihalt ez a Google+
+      p
+        | Ok, beregisztráltam... Szép és nagyon 'modern-web', de bármikor felnézek, akkor senki sincs
+        | sehol. Egyszóval unalmas...
+      a.next(href='/') részletek >
+
+    article.third.last
+      header
+        h3
+          a(href='/') Túl zsúfolt a folyamod?
+      p
+        | Sok érdekes ember és oldal van Google+ terngerén, de előbb utóbb követhetetlen lehet a sok
+        | bejegyzés, meg persze nem biztos hogy mindig minden követett bejegyzése érdekel...
+      a.next(href='/') részletek >
+
+    div.line
+  
+    section.left
+      article
+        header
+          h4
+            aa(href='/') Szövegformázás és gyorsbillentyűk
+        p
+          | Hogyan tudjuk megformázni bejegyzéseinket, hogy olvashatóbb tudjon lenni és pár hasznos
+          | dolog a gyorsbillentyűkről
+        a.next(href='/') részletek >
+
+    section.right
+      article
+        header
+          h3
+            a(href='/') Szerkesztés gomb használata
+        a.next(href='/') részletek >
+        p
+          | Érthető, ha valamit gyorsan kell megosztani és az is, ha ez mondjuk egy esemény és gyorsan
+          | jönnek az információk, de lehet követhetőbb, átláthatóbb és kevésbé idegesítő, ha egy
+          | összefoglaló bejegyzést írsz. Ebben nagy segítségedre lehet a szerkesztés gomb...
+
+      article
+        header
+          h3
+            a(href='/') Hello World
+        a.next(href='/') részletek >
+        p avagy `Ahoy!`
