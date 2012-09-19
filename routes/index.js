@@ -1,31 +1,48 @@
 var services = require('../services');
-    SiteModel = services.useModel('site').Site;
+    SiteModel = services.useModel('site').Site,
+    PostModel = services.useModel('post').Post;
     
 module.exports = function(app) {
   app.get('/', function(req, res) {
     SiteModel.currentSite(req, function(err, currentSite) {
-      if (currentSite === null) {
-        var url =  req.protocol
-        url += '://'
-        url += req.headers.host.replace(/:.*/, "");
-        url += req.url;
-        res.status(404);
-        return res.render('error/404', {url: url, title: "404"});
-      }
-      console.log(currentSite);
-      console.log(currentSite.owner);
-      return res.render('page/index', { title: 'Android Jelly Bean-t pakoltam Galaxy S-re' });
+      if (currentSite === null) { return SiteModel.render404(req, res); }
+      PostModel.lastPostsBySite(currentSite._id, 7, function(err, posts) {
+        return res.render('page/index', { title: 'Android Jelly Bean-t pakoltam Galaxy S-re', posts: posts });
+      });
     })
   });
 
+  app.get('/create_posts', function(req, res) {
+    SiteModel.currentSite(req, function(err, currentSite) {
+      if (currentSite === null) { return SiteModel.render404(req, res); }
+      
+      var Author = services.useModel('author').Author;
+      Author.findOne({username: "yitsushi"}, function(err, me) {
+        p = new PostModel();
+        p.title       = 'Android Jelly Bean-t pakoltam Galaxy S-re';
+        p.content     = 'Elmondható nagyon sok minden a Jelly Bean-ről —a 4.1-es Androidról— jó és rossz oldalon egyaránt. Nekem tetszik és gyorsan meg is mutatnám mi az ami legelőször belopta szívembe eme rendszert.';
+        p.author      = me._id;
+        p.site        = currentSite._id;
+        p.main_image  = 'http://folyam.info/assets/img/2012-08-13-android-jelly-bean-et-pakoltam-a-samsung-galaxy-s-emre-i9000/header.jpeg';
+        
+        p.save(function(err) {
+          if (err) {
+            console.log(err);
+          }
+
+          res.redirect('/');
+        });
+      });
+    });
+  });
 /*
-  app.get('/create_sites', function (req, res) {
+  app.get('/create_sites', function(req, res) {
     var Site = services.useModel('site').Site;
     var Author = services.useModel('author').Author;
     Author.findOne({username: "yitsushi"}, function(err, me) {
-      s1 = new Site(),
-      s2 = new Site();
-      s3 = new Site();
+      var s1 = new Site(),
+          s2 = new Site(),
+          s3 = new Site();
       s1.domain = 'tech.folyam.info';
       s1.name   = 'Tech Folyam.info';
       s1.theme  = 'default';
