@@ -7,7 +7,9 @@ module.exports = function(mongoose) {
   var SiteSchema = new Schema({
     domain      : String,
     name        : String,
-    theme       : String
+    theme       : String,
+    owner       : { type: ObjectId, ref: "Author" },
+    gplus_id    : { type: String, default: "" }
   });
   
   SiteSchema.static('currentSite', function(req, cb) {
