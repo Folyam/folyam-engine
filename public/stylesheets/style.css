@@ -202,12 +202,11 @@ span.spacer {
 
 .highlight_articles article:hover {
   border-left: 5px solid rgba(126, 14, 14, 0.6);
-  margin-left: -10px;
   padding-left: 5px;
-  -webkit-transform: scale(1.05) rotate(2deg);
+  /* -webkit-transform: scale(1.05) rotate(2deg); */
   background-color: white;
-  border: 1px solid #555;
-  padding: 10px;
-  margin-left: -20px;
+  /* border: 1px solid #555; */
+  /* padding: 10px; */
+  margin-left: -10px;
   cursor: pointer;
 }
