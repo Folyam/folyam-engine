@@ -2,71 +2,72 @@ extends ../layout
 
 block content
   div.highlight_articles
-    article#pitch
-      a(href='/')
-        img(src='http://folyam.info/assets/img/2012-08-13-android-jelly-bean-et-pakoltam-a-samsung-galaxy-s-emre-i9000/header.jpeg')
-      header
-        h1
-          a(href='/')= title
-      p
-        | Elmondható nagyon sok minden a Jelly Bean-ről —a 4.1-es Androidról— jó és rossz oldalon egyaránt.
-        | Nekem tetszik és gyorsan meg is mutatnám mi az ami legelőször belopta szívembe eme rendszert.
-        a.next(href='/') részletek >
-  
-    article.third
-      header
-        h3
-          a(href='/') Ki hogyan osztja be köreit?
-      p
-        | Egy Hangout Air beszélgetés arról, hogy ki mint alkotta meg, rendezi össze és kezeli köreit.
-        | Szeretnék ezzel egy kis segítséget adni azoknak akik eddig nem tudták hogyan érdemes vagy
-        | úgy érzik nem optimális a mostani neki, de nem tudja hogyan lehetne jobb.
-      a.next(href='/') részletek >
-
-    article.third
-      header
-        h3
-          a(href='/') Kihalt ez a Google+
-      p
-        | Ok, beregisztráltam... Szép és nagyon 'modern-web', de bármikor felnézek, akkor senki sincs
-        | sehol. Egyszóval unalmas...
-      a.next(href='/') részletek >
-
-    article.third.last
-      header
-        h3
-          a(href='/') Túl zsúfolt a folyamod?
-      p
-        | Sok érdekes ember és oldal van Google+ terngerén, de előbb utóbb követhetetlen lehet a sok
-        | bejegyzés, meg persze nem biztos hogy mindig minden követett bejegyzése érdekel...
-      a.next(href='/') részletek >
-
-    div.line
-  
-    section.left
-      article
+    if posts.length > 0
+      article#pitch
+        a(href='/#{posts[0].slug}')
+          img(src="#{posts[0].main_image}")
         header
-          h4
-            aa(href='/') Szövegformázás és gyorsbillentyűk
+          h1
+            a(href='/#{posts[0].slug}')= posts[0].title
         p
-          | Hogyan tudjuk megformázni bejegyzéseinket, hogy olvashatóbb tudjon lenni és pár hasznos
-          | dolog a gyorsbillentyűkről
-        a.next(href='/') részletek >
+          | #{posts[0].content}
+          a.next(href='/#{posts[0].slug}') részletek >
 
-    section.right
-      article
+    if posts.length > 1
+      article.third
         header
           h3
-            a(href='/') Szerkesztés gomb használata
-        a.next(href='/') részletek >
+            a(href='/#{posts[1].slug}') #{posts[1].title}
         p
-          | Érthető, ha valamit gyorsan kell megosztani és az is, ha ez mondjuk egy esemény és gyorsan
-          | jönnek az információk, de lehet követhetőbb, átláthatóbb és kevésbé idegesítő, ha egy
-          | összefoglaló bejegyzést írsz. Ebben nagy segítségedre lehet a szerkesztés gomb...
+          | #{posts[1].content}
+          a.next(href='/#{posts[1].slug}') részletek >
 
-      article
+    if posts.length > 2
+      article.third
         header
           h3
-            a(href='/') Hello World
-        a.next(href='/') részletek >
-        p avagy `Ahoy!`
+            a(href='/#{posts[2].slug}') #{posts[2].title}
+        p
+          | #{posts[1].content}
+          a.next(href='/#{posts[2].slug}') részletek >
+
+    if posts.length > 3
+      article.third.last
+        header
+          h3
+            a(href='/#{posts[3].slug}') #{posts[3].title}
+        p
+          | #{posts[3].content}
+          a.next(href='/#{posts[3].slug}') részletek >
+
+    if posts.length > 1
+      div.line
+  
+    if posts.length > 4
+      section.left
+        article
+          header
+            h4
+              a(href='/#{posts[4].slug}') #{posts[3].title}
+          p
+            | #{posts[4].content}
+            a.next(href='/#{posts[4].slug}') részletek >
+
+      if posts.length > 5
+        section.right
+          article
+            header
+              h3
+                a(href='/#{posts[5].slug}') #{posts[5].title}
+            a.next(href='/#{posts[5].slug}') részletek >
+            p
+              | #{posts[5].content}
+
+          if posts.length > 6
+            article
+              header
+                h3
+                  a(href='/#{posts[6].slug}') #{posts[6].title}
+              a.next(href='/#{posts[6].slug}') részletek >
+              p
+                | #{posts[6].content}

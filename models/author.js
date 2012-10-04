@@ -10,7 +10,8 @@ module.exports = function(mongoose) {
     location      : String,
     email         : String,
     googlePlusId  : String,
-    approved      : Boolean
+    approved      : Boolean,
+    sites         : [{type: ObjectId, ref: "Site"}]
   });
   
   modelObject.AuthorSchema  = AuthorSchema;
